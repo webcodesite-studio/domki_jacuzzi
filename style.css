@@ -389,3 +389,187 @@ footer {
     margin-top: 10px;
     font-size: 0.9rem;
 }
+/* KONTAKT - STYLIZACJA */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #e67e22;
+}
+
+.contact-methods {
+    margin: 30px 0;
+}
+
+.method-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.method-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.method-item .icon {
+    font-size: 2rem;
+    margin-right: 20px;
+}
+
+.method-item strong {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #bdc3c7;
+}
+
+.method-item a, .method-item span {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-btn {
+    padding: 10px 20px;
+    border: 1px solid #e67e22;
+    color: #e67e22;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    background: #e67e22;
+    color: #fff;
+}
+
+/* Responsywność dla kontaktu */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-map {
+        order: 2; /* Mapa pod tekstem na mobile */
+    }
+}
+/* Styl dla Hamburgera */
+.menu-toggle {
+    display: none; /* Ukryty na komputerach */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #2c3e50;
+    transition: 0.3s;
+}
+
+/* RESPONSYWNOŚĆ (Dla telefonów) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
+    }
+
+    .nav-list {
+        display: none; /* Ukrywamy standardową listę */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Wysokość menu */
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    /* Klasa aktywująca dropdown */
+    .nav-list.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    /* Animacja hamburgera w krzyżyk (opcjonalne) */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+.main-img {
+    width: 100%;
+    height: auto; /* Pozwala zdjęciu zachować proporcje */
+    aspect-ratio: 16 / 9; /* Wymusza ładny kształt prostokąta niezależnie od pliku */
+    object-fit: cover; /* Wypełnia obszar bez rozciągania */
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .main-img {
+        aspect-ratio: 4 / 3; /* Na bardzo małych telefonach zdjęcie może być nieco wyższe */
+    }
+}
+.modal-wrapper img {
+    /* To sprawi, że zdjęcie nigdy nie przekroczy rozmiaru ekranu */
+    max-width: 100%; 
+    max-height: 85vh; /* 85% wysokości widoku ekranu */
+    
+    width: auto;
+    height: auto;
+    
+    object-fit: contain; /* Gwarantuje, że całe zdjęcie będzie widoczne */
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Na telefonach w pionie musimy dać zdjęciu więcej miejsca */
+@media (max-width: 768px) {
+    .modal-wrapper {
+        width: 95%; /* Mniejsze marginesy boczne na telefonie */
+    }
+    
+    .modal-content img {
+        max-height: 70vh; /* Zostawiamy miejsce na strzałki i opis pod zdjęciem */
+    }
+}
+@media (max-width: 768px) {
+    .nav-arrow {
+        font-size: 30px; /* Mniejsze strzałki */
+        padding: 10px;
+        background: rgba(0,0,0,0.3); /* Lekkie tło, żeby były widoczne na jasnych zdjęciach */
+        border-radius: 50%;
+    }
+    
+    .prev { left: 5px; }
+    .next { right: 5px; }
+}

@@ -9,13 +9,20 @@
 <body>
 
     <nav>
-        <div class="logo">Oaza Relaksu</div>
-        <ul>
-            <li><a href="#home">Start</a></li>
-            <li><a href="#oferta">O domkach</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-    </nav>
+    <div class="logo">Oaza Relaksu</div>
+    
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <ul class="nav-list">
+        <li><a href="#home">Start</a></li>
+        <li><a href="#oferta">O domkach</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+</nav>
 
     <header id="home" class="hero">
         <div class="hero-overlay">
@@ -33,15 +40,15 @@
             <div class="card" onclick="openGallery('domek1')">
                 <div class="card-image-container">
                     <img src="image.jpg" alt="Domek Leśny" class="main-img">
-                    <div class="photo-badge">Zobacz zdjęcia</div>
+                    <div class="photo-badge"><center>Kiliknij żeby zobaczyć zdjęcia</center></div>
                 </div>
                 <div id="domek1" class="hidden-gallery">
-                    <img src="glowne1.jpg" alt="Domek Leśny - Widok">
-                    <img src="wnetrze1.jpg" alt="Domek Leśny - Salon">
-                    <img src="jacuzzi1.jpg" alt="Domek Leśny - Jacuzzi">
+                    <img src="image.jpg" alt="Domek Leśny - Widok">
+                    <img src="iamge.jpg" alt="Domek Leśny - Salon">
+                    <img src="image.jpg" alt="Domek Leśny - Jacuzzi">
                 </div>
                 <div class="card-text">
-                    <h3>Domek Leśny</h3>
+                    <h3>Domki z jacuzzi</h3>
                     <p>Cisza, spokój i prywatne jacuzzi pod gwiazdami.</p>
                 </div>
             </div>
@@ -60,6 +67,52 @@
     </div>
     <button class="nav-arrow next" id="nextBtn">&#10095;</button>
 </div>
+<section id="kontakt" class="section dark-bg">
+    <div class="container">
+        <h2 class="title" style="color: #fff;">Kontakt i Rezerwacja</h2>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Zaplanuj swój pobyt</h3>
+                <p>Masz pytania? Chętnie na nie odpowiemy. Zadzwoń do nas lub napisz wiadomość e-mail.</p>
+                
+                <div class="contact-methods">
+                    <div class="method-item">
+                        <span class="icon">📞</span>
+                        <div>
+                            <strong>Zadzwoń do nas</strong>
+                            <a href="tel:+48123456789">+48 123 456 789</a>
+                        </div>
+                    </div>
+                    
+                    <div class="method-item">
+                        <span class="icon">✉️</span>
+                        <div>
+                            <strong>Napisz e-mail</strong>
+                            <a href="mailto:rezerwacje@oazarelaksu.pl">rezerwacje@oazarelaksu.pl</a>
+                        </div>
+                    </div>
+                    
+                    <div class="method-item">
+                        <span class="icon">📍</span>
+                        <div>
+                            <strong>Lokalizacja</strong>
+                            <span>ul. Leśna Cisza 15, 34-400 Zakopane</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="contact-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41315.71962372481!2d19.92095878434771!3d49.29130761271618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4715f292d7a391a3%3A0x4d0d2685166c3740!2sZakopane!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl" 
+                    width="100%" height="350" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
 <script>
     let currentImages = [];
     let currentIndex = 0;
@@ -107,6 +160,24 @@
             if (e.key === "Escape") modal.style.display = "none";
         }
     });
+
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.querySelector('.nav-list');
+
+    // Otwieranie/Zamykanie po kliknięciu w hamburgera
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navList.classList.toggle('active');
+    });
+
+    // Zamykanie menu po kliknięciu w link (żeby przejść do sekcji)
+    document.querySelectorAll('.nav-list a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navList.classList.remove('active');
+        });
+    });
+
 </script>
     <footer>
         <p>&copy; 2026 Domki z Jacuzzi. Wszelkie prawa zastrzeżone.</p>
