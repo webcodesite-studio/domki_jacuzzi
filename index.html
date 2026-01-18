@@ -5,18 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domki z Jacuzzi - Wynajem</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 </head>
 <body>
-
-    <nav>
-    <div class="logo">Oaza Relaksu</div>
+<nav>
+    <a href="#home" class="logo-container">
+        <img src="favicon.ico" alt="Logo" class="logo-icon">
+        <span class="logo-text">Oaza Relaksu</span>
+    </a>
     
     <div class="menu-toggle" id="mobile-menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
     </div>
-
     <ul class="nav-list">
         <li><a href="#home">Start</a></li>
         <li><a href="#oferta">O domkach</a></li>
@@ -40,7 +46,7 @@
             <div class="card" onclick="openGallery('domek1')">
                 <div class="card-image-container">
                     <img src="image.jpg" alt="Domek Leśny" class="main-img">
-                    <div class="photo-badge"><center>Kiliknij żeby zobaczyć zdjęcia</center></div>
+                    <div class="photo-badge"><b><center>Kiliknij żeby zobaczyć zdjęcia</center></div></b>
                 </div>
                 <div id="domek1" class="hidden-gallery">
                     <img src="image.jpg" alt="Domek Leśny - Widok">
