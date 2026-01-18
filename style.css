@@ -1,0 +1,320 @@
+/* 1. USTAWIENIA OGÓLNE */
+html {
+    scroll-behavior: smooth; /* Płynne przewijanie do sekcji */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fcfcfc;
+}
+
+/* 2. NAWIGACJA */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 70px;
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #e67e22;
+}
+
+/* 3. SEKCJA HERO (ZDJĘCIE GŁÓWNE ZE SKALOWANIEM) */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden; /* Ważne dla animacji skalowania */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+/* Kontener na zdjęcie, żeby skalowanie nie psuło napisów */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('main.jpg') no-repeat center center/cover;
+    z-index: -1;
+    /* ANIMACJA SKALOWANIA */
+    animation: powolnyZoom 20s infinite alternate ease-in-out;
+}
+
+@keyframes powolnyZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.45); /* Przyciemnienie zdjęcia */
+    color: #fff;
+    padding: 50px 30px;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 800px;
+    z-index: 1;
+}
+
+.hero-overlay h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero-overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 35px;
+    background: #e67e22;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #d35400;
+    transform: scale(1.05);
+}
+
+/* 4. SEKCJE TREŚCI */
+.section {
+    padding: 100px 5%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+/* 5. SIATKA DOMKÓW I EFEKT WYSKAKIWANIA */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    /* Płynność poruszania się */
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+/* EFEKT WYSKAKIWANIA (HOVER) */
+.card:hover {
+    transform: translateY(-20px); /* Domek wyskakuje do góry */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.card-text {
+    padding: 30px;
+    text-align: center;
+}
+
+.card-text h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* 6. KONTAKT */
+.dark-bg {
+    background: #2c3e50;
+    color: #fff;
+}
+
+.contact-info {
+    text-align: center;
+}
+
+.phone {
+    font-size: 2.5rem;
+    margin: 25px 0;
+    font-weight: bold;
+}
+
+.phone a {
+    color: #e67e22;
+    text-decoration: none;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* 7. STOPKA */
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #1a252f;
+    color: #95a5a6;
+    font-size: 0.9rem;
+}
+
+/* 8. RESPONSYWNOŚĆ (TELEFONY) */
+@media (max-width: 768px) {
+    .hero-overlay h1 {
+        font-size: 2.2rem;
+    }
+    
+    nav ul {
+        display: none; /* Ukrywamy menu na bardzo małych ekranach dla prostoty */
+    }
+    
+    .phone {
+        font-size: 1.8rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Stylizacja sekcji kontaktowej - Wersja elegancka */
+.contact-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 1.1rem;
+    color: #bdc3c7;
+    margin-bottom: 40px;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Odstępy między telefonem, adresem a mailem */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Delikatna linia oddzielająca */
+    transition: 0.3s;
+}
+
+.contact-item:hover {
+    border-bottom-color: #e67e22; /* Linia zmienia kolor przy najechaniu */
+}
+
+.contact-icon {
+    font-size: 1.8rem;
+    margin-right: 20px;
+    filter: drop-shadow(0 0 5px rgba(230, 126, 34, 0.3));
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-text strong {
+    color: #e67e22;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.contact-text a, .contact-text span {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.contact-text a:hover {
+    color: #e67e22;
+}
+
+/* Usunięcie linii przy ostatnim elemencie */
+.contact-item:last-child {
+    border-bottom: none;
+}
+
+/* Dostosowanie do mobile */
+@media (max-width: 480px) {
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .contact-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
