@@ -1,6 +1,8 @@
 /* 1. USTAWIENIA OGÓLNE */
 html {
-    scroll-behavior: smooth; /* Płynne przewijanie do sekcji */
+    scroll-behavior: smooth; /* Płynne przewijanie */
+    /* Dodajemy odstęp, aby menu nie zasłaniało tytułu sekcji po zjechaniu */
+    scroll-padding-top: 70px; 
 }
 
 * {
@@ -317,4 +319,59 @@ footer {
         margin-right: 0;
         margin-bottom: 10px;
     }
+}
+/* Styl dla Modala Galerii */
+.modal {
+    display: none; /* Ukryty na start */
+    position: fixed;
+    z-index: 2000; /* Nad menu */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: #e67e22;
+}
+
+#caption {
+    margin-top: 15px;
+    color: #ccc;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Kursor lupy na zdjęciach w kartach */
+.card img {
+    cursor: zoom-in;
 }
